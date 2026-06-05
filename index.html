@@ -68,7 +68,17 @@
     <a href="terms.html">利用規約</a>
     <a href="privacy.html">プライバシー</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="active">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシー</a>
+</nav>
 
 <div class="hero-main">
   <h1>YouTube概要欄作成Bot</h1>
@@ -165,6 +175,11 @@ fetch('news.json?t=' + Date.now())
   .catch(() => {
     document.getElementById('news-list').innerHTML = '<p style="color:var(--text-muted); font-size:14px;">お知らせを読み込めませんでした。</p>';
   });
+</script>
+<script>
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+});
 </script>
 </body>
 </html>

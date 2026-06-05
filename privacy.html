@@ -17,7 +17,17 @@
     <a href="terms.html">利用規約</a>
     <a href="privacy.html" class="active">プライバシー</a>
   </nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html" class="active">プライバシー</a>
+</nav>
 
 <div style="background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); padding:48px 24px; text-align:center; color:#fff;">
   <h1 style="font-size:28px; font-weight:700; margin-bottom:8px;">プライバシーポリシー</h1>
@@ -148,5 +158,10 @@
   <p>&copy; 2026 MizuLab</p>
 </footer>
 
+<script>
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+});
+</script>
 </body>
 </html>

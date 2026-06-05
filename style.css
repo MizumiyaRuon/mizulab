@@ -101,8 +101,6 @@ footer .footer-links {
 /* 利用規約・プライバシーポリシーのセクション間余白 */
 .section {
   margin-bottom: 8px;
-}
-.section + .section {
   margin-top: 32px;
 }
 
@@ -244,8 +242,57 @@ footer .footer-links {
   color: #78350f;
 }
 
-@media (max-width: 600px) {
+/* ハンバーガーメニュー */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #1d4ed8;
+  padding: 8px 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav a {
+  color: #bfdbfe;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.2s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.mobile-nav a.active { color: #fff; background: rgba(255,255,255,0.15); }
+
+@media (max-width: 640px) {
   .card { padding: 20px 16px; }
   .hero h1 { font-size: 22px; }
-  header nav a { padding: 4px 8px; font-size: 12px; }
+  header { position: relative; }
+  header nav { display: none; }
+  .hamburger { display: flex; }
 }
