@@ -252,6 +252,7 @@ footer .footer-links {
   margin-left: auto;
   background: none;
   border: none;
+  flex-shrink: 0;
 }
 .hamburger span {
   display: block;
@@ -259,29 +260,27 @@ footer .footer-links {
   height: 2px;
   background: #fff;
   border-radius: 2px;
-  transition: all 0.3s;
 }
 
+/* モバイルナビ：ヘッダーの直下に固定 */
 .mobile-nav {
   display: none;
   flex-direction: column;
   background: #1d4ed8;
   padding: 8px 0;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 46px; /* ヘッダーの高さ分下げる */
   left: 0;
   right: 0;
   z-index: 99;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 .mobile-nav.open { display: flex; }
-
 .mobile-nav a {
   color: #bfdbfe;
   text-decoration: none;
-  padding: 12px 24px;
-  font-size: 14px;
+  padding: 14px 24px;
+  font-size: 15px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   transition: background 0.2s;
 }
@@ -292,7 +291,6 @@ footer .footer-links {
 @media (max-width: 640px) {
   .card { padding: 20px 16px; }
   .hero h1 { font-size: 22px; }
-  header { position: relative; }
   header nav { display: none; }
   .hamburger { display: flex; }
 }
