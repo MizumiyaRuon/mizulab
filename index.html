@@ -109,14 +109,7 @@
   <!-- お知らせ -->
   <div class="card">
     <h2 style="font-size:18px; font-weight:700; margin-bottom:20px; color:var(--text);">📢 お知らせ</h2>
-    <div class="news-item">
-      <span class="news-date">2026-06-05</span>
-      <span class="news-text"><span class="badge badge-info">新機能</span> サブ垢管理機能・チャンネル指定一覧生成機能を追加しました</span>
-    </div>
-    <div class="news-item">
-      <span class="news-date">2026-06-05</span>
-      <span class="news-text"><span class="badge badge-success">公開</span> MizuLabサイトを公開しました</span>
-    </div>
+    <div id="news-list"><p style="color:var(--text-muted); font-size:14px;">読み込み中...</p></div>
   </div>
 
   <!-- リンク -->
@@ -143,5 +136,35 @@
   <p>&copy; 2026 MizuLab</p>
 </footer>
 
+<script>
+// news.jsonからお知らせを読み込んで表示する
+const typeMap = {
+  'new':     { label: '新機能',   cls: 'badge-info' },
+  'release': { label: '公開',     cls: 'badge-success' },
+  'fix':     { label: '修正',     cls: 'badge-warning' },
+  'info':    { label: 'お知らせ', cls: 'badge-info' },
+  'maint':   { label: 'メンテ',   cls: 'badge-warning' },
+};
+
+fetch('news.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    const list = document.getElementById('news-list');
+    if (!data.length) {
+      list.innerHTML = '<p style="color:var(--text-muted); font-size:14px;">現在お知らせはありません。</p>';
+      return;
+    }
+    list.innerHTML = data.map(item => {
+      const t = typeMap[item.type] || { label: item.type, cls: 'badge-info' };
+      return `<div class="news-item">
+        <span class="news-date">${item.date}</span>
+        <span class="news-text"><span class="badge ${t.cls}">${t.label}</span> ${item.text}</span>
+      </div>`;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('news-list').innerHTML = '<p style="color:var(--text-muted); font-size:14px;">お知らせを読み込めませんでした。</p>';
+  });
+</script>
 </body>
 </html>
