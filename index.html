@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MizuLab - SNS概要欄作成Bot</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero-main {
+    background: linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%);
+    padding: 72px 24px;
+    text-align: center;
+    color: #fff;
+  }
+  .hero-main h1 { font-size: 36px; font-weight: 700; margin-bottom: 12px; }
+  .hero-main p { font-size: 16px; opacity: 0.85; max-width: 500px; margin: 0 auto 32px; }
+  .btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-white { background: #fff; color: var(--primary); }
+  .btn-white:hover { background: #f0f7ff; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); margin-left: 12px; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .btn-disabled { background: #94a3b8; color: #fff; cursor: not-allowed; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .feature-card {
+    background: var(--primary-light);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .feature-icon { font-size: 32px; margin-bottom: 10px; }
+  .feature-title { font-weight: 700; margin-bottom: 6px; color: var(--primary); }
+  .feature-desc { font-size: 13px; color: var(--text-muted); }
+
+  .news-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-size: 13px; color: var(--text-muted); white-space: nowrap; min-width: 90px; }
+  .news-text { font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Mizu<span>Lab</span></a>
+  <nav>
+    <a href="index.html" class="active">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシー</a>
+  </nav>
+</header>
+
+<div class="hero-main">
+  <h1>SNS概要欄作成Bot</h1>
+  <p>メンバーのSNS情報をまとめて、コマンド一つで参加者一覧を自動生成。コラボや企画の準備をもっと簡単に。</p>
+  <a href="#" class="btn btn-disabled">Botを招待する（準備中）</a>
+  <a href="guide.html" class="btn btn-outline">使い方を見る</a>
+</div>
+
+<div class="container">
+
+  <!-- 特徴 -->
+  <div class="card">
+    <h2 style="font-size:18px; font-weight:700; margin-bottom:20px; color:var(--text);">✨ 主な機能</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-title">SNS情報の登録</div>
+        <div class="feature-desc">X・YouTube・Twitchなど複数のSNSをまとめて登録できます</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">参加者一覧の自動生成</div>
+        <div class="feature-desc">ロールやチャンネルを指定してコマンド一つで一覧を作成</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">複数サーバーで共有</div>
+        <div class="feature-desc">一度登録すれば他のサーバーでも同じデータを使い回せます</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">サブ垢管理</div>
+        <div class="feature-desc">サブ垢として設定したアカウントは一覧から自動除外されます</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- お知らせ -->
+  <div class="card">
+    <h2 style="font-size:18px; font-weight:700; margin-bottom:20px; color:var(--text);">📢 お知らせ</h2>
+    <div class="news-item">
+      <span class="news-date">2026-06-05</span>
+      <span class="news-text"><span class="badge badge-info">新機能</span> サブ垢管理機能・チャンネル指定一覧生成機能を追加しました</span>
+    </div>
+    <div class="news-item">
+      <span class="news-date">2026-06-05</span>
+      <span class="news-text"><span class="badge badge-success">公開</span> MizuLabサイトを公開しました</span>
+    </div>
+  </div>
+
+  <!-- リンク -->
+  <div class="card">
+    <h2 style="font-size:18px; font-weight:700; margin-bottom:20px; color:var(--text);">🔗 リンク</h2>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="guide.html" class="btn btn-white" style="border:1px solid var(--border);">📖 使い方ガイド</a>
+      <a href="status.html" class="btn btn-white" style="border:1px solid var(--border);">🟢 稼働状況</a>
+      <a href="terms.html" class="btn btn-white" style="border:1px solid var(--border);">📄 利用規約</a>
+      <a href="privacy.html" class="btn btn-white" style="border:1px solid var(--border);">🔒 プライバシーポリシー</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p>&copy; 2026 MizuLab</p>
+</footer>
+
+</body>
+</html>

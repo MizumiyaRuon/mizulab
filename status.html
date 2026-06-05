@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>稼働状況 - MizuLab</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); }
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+  .status-indicator.normal  { background: #f0fdf4; border: 1px solid #86efac; }
+  .status-indicator.warning { background: #fffbeb; border: 1px solid #fcd34d; }
+  .status-indicator.danger  { background: #fef2f2; border: 1px solid #fca5a5; }
+  .status-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .status-dot.normal  { background: #22c55e; box-shadow: 0 0 0 4px #dcfce7; animation: pulse-green 2s infinite; }
+  .status-dot.warning { background: #f59e0b; box-shadow: 0 0 0 4px #fef9c3; animation: pulse-yellow 2s infinite; }
+  .status-dot.danger  { background: #ef4444; box-shadow: 0 0 0 4px #fee2e2; animation: pulse-red 2s infinite; }
+
+  @keyframes pulse-green  { 0%,100%{box-shadow:0 0 0 4px #dcfce7} 50%{box-shadow:0 0 0 8px #bbf7d0} }
+  @keyframes pulse-yellow { 0%,100%{box-shadow:0 0 0 4px #fef9c3} 50%{box-shadow:0 0 0 8px #fef08a} }
+  @keyframes pulse-red    { 0%,100%{box-shadow:0 0 0 4px #fee2e2} 50%{box-shadow:0 0 0 8px #fecaca} }
+
+  .status-label { font-weight: 700; font-size: 16px; }
+  .status-label.normal  { color: #166534; }
+  .status-label.warning { color: #854d0e; }
+  .status-label.danger  { color: #991b1b; }
+  .status-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  .maintenance-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .maintenance-item:last-child { border-bottom: none; }
+  .maintenance-date { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+  .maintenance-title { font-weight: 700; margin-bottom: 4px; }
+  .maintenance-desc { font-size: 14px; color: var(--text-muted); }
+
+  /* =============================================
+     ここを編集して稼働状況を更新してください
+  ============================================= */
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Mizu<span>Lab</span></a>
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html" class="active">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシー</a>
+  </nav>
+</header>
+
+<div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding:48px 24px; text-align:center; color:#fff;">
+  <h1 style="font-size:28px; font-weight:700; margin-bottom:8px;">稼働状況</h1>
+  <p style="font-size:14px; opacity:0.8;">SNS概要欄作成Botの現在の状態をご確認いただけます</p>
+</div>
+
+<div class="container">
+
+  <!-- 現在の状態 -->
+  <div class="card">
+    <h2 style="font-size:17px; font-weight:700; margin-bottom:20px;">現在の稼働状況</h2>
+
+    <!--
+      =============================================
+      稼働状況の編集方法：
+      - 正常稼働中 → class="status-indicator normal" / class="status-dot normal" / class="status-label normal"
+      - 一部障害あり → warning に変更
+      - 停止中 → danger に変更
+      =============================================
+    -->
+    <div class="status-indicator normal">
+      <div class="status-dot normal"></div>
+      <div>
+        <div class="status-label normal">正常稼働中</div>
+        <div class="status-sub">すべての機能が正常に動作しています</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+      最終確認日時：<span id="last-updated">2026-06-05</span>
+    </p>
+  </div>
+
+  <!-- メンテナンス予定 -->
+  <div class="card">
+    <h2 style="font-size:17px; font-weight:700; margin-bottom:20px;">📅 メンテナンス予定</h2>
+
+    <!--
+      =============================================
+      メンテナンス予定の編集方法：
+      予定がない場合は以下の「予定なし」の行のみ残してください。
+      予定がある場合は maintenance-item を追加してください。
+      =============================================
+    -->
+    <p style="color:var(--text-muted); font-size:14px;">現在、予定されているメンテナンスはありません。</p>
+
+    <!-- メンテナンス予定の例（使うときはコメントアウトを外してください）
+    <div class="maintenance-item">
+      <div class="maintenance-date">2026-06-10 22:00 〜 23:00（予定）</div>
+      <div class="maintenance-title">定期メンテナンス</div>
+      <div class="maintenance-desc">サーバーの定期メンテナンスを行います。この間Botが利用できなくなります。</div>
+    </div>
+    -->
+  </div>
+
+  <!-- 障害・メンテナンス履歴 -->
+  <div class="card">
+    <h2 style="font-size:17px; font-weight:700; margin-bottom:20px;">🗂️ 障害・メンテナンス履歴</h2>
+
+    <!--
+      =============================================
+      履歴の編集方法：
+      新しいものを上に追加してください。
+      =============================================
+    -->
+    <div class="maintenance-item">
+      <div class="maintenance-date">2026-06-05</div>
+      <div class="maintenance-title"><span class="badge badge-success">完了</span> サービス開始</div>
+      <div class="maintenance-desc">SNS概要欄作成BotおよびMizuLabサイトを公開しました。</div>
+    </div>
+
+  </div>
+
+  <!-- 更新情報 -->
+  <div class="card">
+    <h2 style="font-size:17px; font-weight:700; margin-bottom:20px;">🆕 更新履歴</h2>
+
+    <!--
+      =============================================
+      更新履歴の編集方法：
+      新しいものを上に追加してください。
+      =============================================
+    -->
+    <div class="maintenance-item">
+      <div class="maintenance-date">2026-06-05</div>
+      <div class="maintenance-title"><span class="badge badge-info">新機能</span> サブ垢管理・チャンネル指定一覧生成を追加</div>
+      <div class="maintenance-desc">/g02_chdesc コマンドによるチャンネル・スレッド指定での参加者一覧生成機能、サブ垢フラグ機能を追加しました。</div>
+    </div>
+    <div class="maintenance-item">
+      <div class="maintenance-date">2026-06-05</div>
+      <div class="maintenance-title"><span class="badge badge-success">公開</span> サービス開始</div>
+      <div class="maintenance-desc">SNS概要欄作成Botのサービスを開始しました。</div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">ホーム</a>
+    <a href="guide.html">使い方</a>
+    <a href="status.html">稼働状況</a>
+    <a href="terms.html">利用規約</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p>&copy; 2026 MizuLab</p>
+</footer>
+
+</body>
+</html>
