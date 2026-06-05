@@ -95,6 +95,16 @@
   <div id="tab-all" class="tab-content active">
 
     <div class="card">
+      <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（全員）</h2>
+      <table class="cmd-table">
+        <tr><th>コマンド</th><th>内容</th></tr>
+        <tr><td><code>/a01_register</code></td><td>自分のSNS情報を登録・更新する</td></tr>
+        <tr><td><code>/a02_myprofile</code></td><td>自分の登録情報を確認する</td></tr>
+        <tr><td><code>/a03_profile @ユーザー</code></td><td>他のメンバーの登録情報を確認する</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
       <div class="section-header">
         <div class="section-number">1</div>
         <div class="section-title">SNS情報を登録する（/a01_register）</div>
@@ -160,20 +170,21 @@
       </table>
     </div>
 
-    <div class="card">
-      <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（全員）</h2>
-      <table class="cmd-table">
-        <tr><th>コマンド</th><th>内容</th></tr>
-        <tr><td><code>/a01_register</code></td><td>自分のSNS情報を登録・更新する</td></tr>
-        <tr><td><code>/a02_myprofile</code></td><td>自分の登録情報を確認する</td></tr>
-        <tr><td><code>/a03_profile @ユーザー</code></td><td>他のメンバーの登録情報を確認する</td></tr>
-      </table>
-    </div>
-
   </div>
 
   <!-- 管理者向け -->
   <div id="tab-admin" class="tab-content">
+
+    <div class="card">
+      <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（管理者）</h2>
+      <table class="cmd-table">
+        <tr><th>コマンド</th><th>内容</th></tr>
+        <tr><td><code>/g01_roledesc @ロール</code></td><td>指定ロールの参加者一覧を生成</td></tr>
+        <tr><td><code>/g02_chdesc</code></td><td>このチャンネル/スレッドの参加者一覧を生成</td></tr>
+        <tr><td><code>/g03_setbutton</code></td><td>登録・確認ボタンをチャンネルに設置</td></tr>
+        <tr><td><code>/g04_unregistered</code></td><td>未登録メンバーの一覧を確認</td></tr>
+      </table>
+    </div>
 
     <div class="card">
       <div class="section-header">
@@ -224,17 +235,6 @@
         <div class="section-title">未登録メンバーを確認する（/g04_unregistered）</div>
       </div>
       <p>SNS情報を登録していないメンバーの一覧を確認できます（自分にだけ見える）。</p>
-    </div>
-
-    <div class="card">
-      <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（管理者）</h2>
-      <table class="cmd-table">
-        <tr><th>コマンド</th><th>内容</th></tr>
-        <tr><td><code>/g01_roledesc @ロール</code></td><td>指定ロールの参加者一覧を生成</td></tr>
-        <tr><td><code>/g02_chdesc</code></td><td>このチャンネル/スレッドの参加者一覧を生成</td></tr>
-        <tr><td><code>/g03_setbutton</code></td><td>登録・確認ボタンをチャンネルに設置</td></tr>
-        <tr><td><code>/g04_unregistered</code></td><td>未登録メンバーの一覧を確認</td></tr>
-      </table>
     </div>
 
   </div>

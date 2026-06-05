@@ -98,6 +98,14 @@ footer .footer-links {
   flex-wrap: wrap;
 }
 
+/* 利用規約・プライバシーポリシーのセクション間余白 */
+.section {
+  margin-bottom: 8px;
+}
+.section + .section {
+  margin-top: 32px;
+}
+
 /* コンテナ */
 .container {
   max-width: 860px;
