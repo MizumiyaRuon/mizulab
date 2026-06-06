@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>使い方 - MizuLab</title>
 <link rel="stylesheet" href="style.css">
 <style>
@@ -21,50 +21,28 @@
   .step-list li::before {
     content: counter(step);
     position: absolute;
-    left: 12px;
-    top: 14px;
+    left: 12px; top: 14px;
     background: var(--primary);
     color: #fff;
-    width: 28px;
-    height: 28px;
+    width: 28px; height: 28px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
   }
-  .tab-buttons {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
+  .tab-buttons { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
   .tab-btn {
-    padding: 8px 20px;
-    border-radius: 8px;
-    border: 2px solid var(--border);
-    background: #fff;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-muted);
-    transition: all 0.2s;
+    padding: 8px 20px; border-radius: 8px;
+    border: 2px solid var(--border); background: #fff;
+    cursor: pointer; font-size: 14px; font-weight: 700;
+    color: var(--text-muted); transition: all 0.2s;
     font-family: 'Noto Sans JP', sans-serif;
   }
-  .tab-btn.active {
-    border-color: var(--primary);
-    background: var(--primary);
-    color: #fff;
-  }
+  .tab-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
   .h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    margin: 20px 0 10px;
-    padding-left: 10px;
+    font-size: 15px; font-weight: 700; color: var(--text);
+    margin: 20px 0 10px; padding-left: 10px;
     border-left: 3px solid var(--accent);
   }
 </style>
@@ -85,14 +63,14 @@
   </button>
 </header>
 <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html">ホーム</a>
-    <a href="guide.html" class="active">使い方</a>
-    <a href="status.html">稼働状況</a>
-    <a href="terms.html">利用規約</a>
-    <a href="privacy.html">プライバシー</a>
+  <a href="index.html">ホーム</a>
+  <a href="guide.html" class="active">使い方</a>
+  <a href="status.html">稼働状況</a>
+  <a href="terms.html">利用規約</a>
+  <a href="privacy.html">プライバシー</a>
 </nav>
 
-<div class="hero" style="background: linear-gradient(135deg, #1e40af 0%, #0369a1 100%); padding:48px 24px; text-align:center; color:#fff;">
+<div style="background: linear-gradient(135deg, #1e40af 0%, #0369a1 100%); padding:48px 24px; text-align:center; color:#fff;">
   <h1 style="font-size:28px; font-weight:700; margin-bottom:8px;">使い方ガイド</h1>
   <p style="font-size:14px; opacity:0.8;">YouTube概要欄作成Botの使い方を説明します</p>
 </div>
@@ -100,8 +78,8 @@
 <div class="container">
 
   <div class="tab-buttons">
-    <button class="tab-btn active" onclick="showTab('all')">👤 全員向け</button>
-    <button class="tab-btn" onclick="showTab('admin')">⚙️ 管理者向け</button>
+    <button class="tab-btn active" onclick="showTab('all', this)">👤 全員向け</button>
+    <button class="tab-btn" onclick="showTab('admin', this)">⚙️ 管理者向け</button>
   </div>
 
   <!-- 全員向け -->
@@ -133,7 +111,6 @@
         <li>「Twitch URL」を入力（任意）</li>
         <li>「送信」を押す</li>
       </ol>
-
       <div class="info-box" style="margin-top:16px;">
         twitter.com のURLを入力した場合は自動的に x.com に変換されます。
       </div>
@@ -143,7 +120,7 @@
         <tr><th>ボタン</th><th>説明</th></tr>
         <tr><td>追加URLを入力する</td><td>ニコニコ・Bluesky などを登録する（2枚目フォームが開く）</td></tr>
         <tr><td>登録情報を確認する</td><td>現在の登録内容を確認する（自分にだけ見える）</td></tr>
-        <tr><td>サブ垢として登録する</td><td>このアカウントをサブ垢として設定する</td></tr>
+        <tr><td>サブ垢として登録する</td><td>このアカウントをサブ垢として設定する（参加者一覧に表示されなくなる）</td></tr>
       </table>
 
       <div class="h3">2枚目：追加URLの入力（任意）</div>
@@ -153,9 +130,8 @@
         <li>追加URL②も同様に入力（任意）</li>
         <li>「送信」を押す（入力不要な場合はそのまま送信でOK）</li>
       </ol>
-
       <div class="warn-box" style="margin-top:16px;">
-        名前とURLは必ず両方入力してください。片方だけ入力した場合、概要欄に表示されません（データは保存されます）。
+        名前とURLは必ず両方入力してください。片方だけ入力した場合、参加者一覧に表示されません（データは保存されます）。
       </div>
     </div>
 
@@ -206,54 +182,22 @@
       <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（管理者）</h2>
       <table class="cmd-table">
         <tr><th>コマンド</th><th>内容</th></tr>
-        <tr><td><code>/g01_roledesc @ロール</code></td><td>指定ロールの参加者一覧を生成</td></tr>
-        <tr><td><code>/g02_chdesc [#チャンネル/#スレッド]</code></td><td>このチャンネル/スレッドの参加者一覧を生成（チャンネル・スレッド指定も可）</td></tr>
-        <tr><td><code>/g03_setbutton</code></td><td>登録・確認ボタンをチャンネルに設置</td></tr>
-        <tr><td><code>/g04_unregistered</code></td><td>未登録メンバーの一覧を確認</td></tr>
+        <tr><td><code>/g00_setbutton</code></td><td>登録・確認ボタンをチャンネルに設置（初期設定）</td></tr>
+        <tr><td><code>/g01_chdesc [#ch/#thread]</code></td><td>チャンネル/スレッドの参加者一覧を生成</td></tr>
+        <tr><td><code>/g02_roledesc @ロール</code></td><td>指定ロールの参加者一覧を生成</td></tr>
+        <tr><td><code>/g11_chunregistered [#ch/#thread]</code></td><td>チャンネル/スレッドの未登録者確認＋登録促進</td></tr>
+        <tr><td><code>/g12_roleunregistered @ロール</code></td><td>指定ロールの未登録者確認</td></tr>
+        <tr><td><code>/g19_unregistered</code></td><td>サーバー全体の未登録メンバーを確認</td></tr>
       </table>
     </div>
 
     <div class="card">
       <div class="section-header">
         <div class="section-number">1</div>
-        <div class="section-title">参加者一覧を生成する</div>
-      </div>
-
-      <div class="h3">① ロール指定で生成（/g01_roledesc）</div>
-      <p style="margin-bottom:10px;">指定したロールを持つメンバーで参加者一覧を生成します。</p>
-      <ol class="step-list">
-        <li>/g01_roledesc を入力</li>
-        <li>引数「role」に対象のロールを指定</li>
-        <li>参加者一覧がチャンネルに投稿される</li>
-      </ol>
-
-      <div class="h3" style="margin-top:20px;">② チャンネル指定で生成（/g02_chdesc）</div>
-      <p style="margin-bottom:10px;">チャンネル・スレッドが見えているメンバーで参加者一覧を生成します。引数でチャンネルを指定することもできます。</p>
-      <table class="cmd-table" style="margin-bottom:12px;">
-        <tr><th>使い方</th><th>説明</th></tr>
-        <tr><td><code>/g02_chdesc</code></td><td>実行したチャンネル/スレッドのメンバーで生成</td></tr>
-        <tr><td><code>/g02_chdesc #チャンネル</code></td><td>指定したチャンネルのメンバーで生成</td></tr>
-        <tr><td><code>/g02_chdesc #スレッド</code></td><td>指定したスレッドのメンバーで生成</td></tr>
-      </table>
-      <ol class="step-list">
-        <li>対象のチャンネルまたはスレッドで /g02_chdesc を実行（またはチャンネルを引数で指定）</li>
-        <li>参加者一覧がそのチャンネルに投稿される</li>
-      </ol>
-
-      <div class="info-box" style="margin-top:16px;">
-        コマンド実行者が先頭に表示されます。サブ垢・未登録者の扱いについては以下の通りです。<br>
-        ・サブ垢として登録されているメンバーは除外されます<br>
-        ・SNS未登録のメンバーは名前のみ表示されます
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="section-header">
-        <div class="section-number">2</div>
-        <div class="section-title">登録ボタンをチャンネルに設置する（/g03_setbutton）</div>
+        <div class="section-title">初期設定：登録ボタンを設置する（/g00_setbutton）</div>
       </div>
       <ol class="step-list">
-        <li>ボタンを設置したいチャンネルで /g03_setbutton を実行</li>
+        <li>ボタンを設置したいチャンネルで /g00_setbutton を実行</li>
         <li>「SNS情報を登録・更新する」「登録情報を確認する」のボタンが投稿される</li>
         <li>メンバーはボタンを押すだけで登録できる</li>
       </ol>
@@ -264,10 +208,68 @@
 
     <div class="card">
       <div class="section-header">
-        <div class="section-number">3</div>
-        <div class="section-title">未登録メンバーを確認する（/g04_unregistered）</div>
+        <div class="section-number">2</div>
+        <div class="section-title">概要欄作成前の準備：未登録者を確認する</div>
       </div>
-      <p>SNS情報を登録していないメンバーの一覧を確認できます（自分にだけ見える）。</p>
+      <p style="margin-bottom:12px;">概要欄作成前に未登録者を確認し、登録を促しましょう。</p>
+
+      <div class="h3">① チャンネル/スレッド指定（/g11_chunregistered）</div>
+      <ol class="step-list">
+        <li>/g11_chunregistered を実行（チャンネル/スレッドを引数で指定も可）</li>
+        <li>未登録者一覧が自分にだけ表示される</li>
+        <li>「📢 登録を促すメッセージを送る」ボタンを押す</li>
+        <li>未登録者にメンション＋登録ボタンが送信される</li>
+      </ol>
+      <div class="info-box" style="margin-top:10px;">
+        別チャンネルを指定した場合、「〇〇チャンネルに送信します」と案内が表示されてから指定チャンネルに送信されます。
+      </div>
+
+      <div class="h3" style="margin-top:20px;">② ロール指定（/g12_roleunregistered）</div>
+      <ol class="step-list">
+        <li>/g12_roleunregistered @ロール を実行</li>
+        <li>そのロールの未登録者一覧が自分にだけ表示される</li>
+      </ol>
+      <div class="info-box" style="margin-top:10px;">
+        確認のみのコマンドです。登録を促すボタンはありません。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">参加者一覧を生成する</div>
+      </div>
+
+      <div class="h3">① チャンネル/スレッド指定（/g01_chdesc）</div>
+      <p style="margin-bottom:10px;">チャンネル・スレッドが見えているメンバーで参加者一覧を生成します。</p>
+      <table class="cmd-table" style="margin-bottom:12px;">
+        <tr><th>使い方</th><th>説明</th></tr>
+        <tr><td><code>/g01_chdesc</code></td><td>実行したチャンネル/スレッドのメンバーで生成</td></tr>
+        <tr><td><code>/g01_chdesc #チャンネル</code></td><td>指定したチャンネルのメンバーで生成</td></tr>
+        <tr><td><code>/g01_chdesc #スレッド</code></td><td>指定したスレッドのメンバーで生成</td></tr>
+      </table>
+
+      <div class="h3" style="margin-top:20px;">② ロール指定（/g02_roledesc）</div>
+      <p style="margin-bottom:10px;">指定したロールを持つメンバーで参加者一覧を生成します。</p>
+      <ol class="step-list">
+        <li>/g02_roledesc @ロール を実行</li>
+        <li>参加者一覧がチャンネルに投稿される</li>
+      </ol>
+
+      <div class="info-box" style="margin-top:16px;">
+        コマンド実行者が先頭に表示されます。サブ垢・削除済みのメンバーは除外されます。20人以上の場合は確認ボタンが表示されます。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">サーバー全体の未登録者を確認する（/g19_unregistered）</div>
+      </div>
+      <p>サーバー全体でSNS情報を登録していないメンバーの一覧を確認できます（自分にだけ見える）。</p>
+      <div class="warn-box" style="margin-top:12px;">
+        大人数のサーバーでは処理に時間がかかる場合があります。通常の確認には /g11_chunregistered または /g12_roleunregistered の使用を推奨します。
+      </div>
     </div>
 
   </div>
@@ -286,18 +288,16 @@
 </footer>
 
 <script>
-function showTab(tab) {
+function showTab(tab, btn) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
-</script>
-
-<script>
 document.getElementById('hamburger').addEventListener('click', function() {
   document.getElementById('mobile-nav').classList.toggle('open');
 });
 </script>
+
 </body>
 </html>
