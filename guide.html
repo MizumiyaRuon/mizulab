@@ -119,6 +119,36 @@
           <div>
             <div style="font-weight:700;">メンバーにSNS情報を登録してもらう</div>
             <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">設置したボタンまたは <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/a01_register</code> からSNS情報を登録してもらいます。</div>
+            <div style="margin-top:12px; background:var(--bg-page); border:1px solid var(--border); border-radius:8px; padding:14px 16px; font-size:13px; line-height:1.8; white-space:pre-wrap; font-family:inherit;" id="invite-msg">【お知らせ】
+このサーバーにYouTube概要欄作成Botを導入しました。
+配信・コラボに参加される方は、SNS情報の登録をお願いいたします。
+
+📌 登録方法
+#チャンネル名 にある「登録する」ボタンを押すか、/a01_register コマンドを実行してください。
+
+✅ 登録できる情報
+・表示名（YouTube名など）
+・X（旧Twitter）
+・YouTube
+・Twitch
+・その他SNS（最大2つ）
+
+ご不明な点があればお気軽にお知らせください。
+詳しい説明はこちらをご覧ください。
+https://MizumiyaRuon.github.io/mizulab/
+
+※ #チャンネル名 はご自身のサーバーのチャンネル名に置き換えてください。</div>
+            <button onclick="copyInviteMsg()" style="margin-top:8px; padding:6px 16px; background:var(--accent); color:#fff; border:none; border-radius:6px; font-size:13px; cursor:pointer;" id="copy-invite-btn">📋 コピーする</button>
+            <script>
+            function copyInviteMsg() {
+              const text = document.getElementById('invite-msg').innerText;
+              navigator.clipboard.writeText(text).then(function() {
+                const btn = document.getElementById('copy-invite-btn');
+                btn.textContent = '✅ コピーしました！';
+                setTimeout(function() { btn.textContent = '📋 コピーする'; }, 2000);
+              });
+            }
+            </script>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
