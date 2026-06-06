@@ -19,12 +19,9 @@
   .step-list li:last-child { border-bottom: none; }
   .step-list li::before {
     content: counter(step);
-    position: absolute;
-    left: 12px; top: 14px;
-    background: var(--primary);
-    color: #fff;
-    width: 28px; height: 28px;
-    border-radius: 50%;
+    position: absolute; left: 12px; top: 14px;
+    background: var(--primary); color: #fff;
+    width: 28px; height: 28px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-size: 13px; font-weight: 700;
   }
@@ -44,13 +41,10 @@
     margin: 20px 0 10px; padding-left: 10px;
     border-left: 3px solid var(--accent);
   }
-  .flow-box {
-    display: flex; flex-direction: column; gap: 8px; margin: 16px 0;
-  }
+  .flow-box { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
   .flow-item {
     display: flex; align-items: center; gap: 12px;
-    background: var(--primary-light); border-radius: 8px;
-    padding: 12px 16px;
+    background: var(--primary-light); border-radius: 8px; padding: 12px 16px;
   }
   .flow-num {
     background: var(--primary); color: #fff;
@@ -58,9 +52,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 13px; font-weight: 700; flex-shrink: 0;
   }
-  .flow-arrow {
-    text-align: center; color: var(--text-muted); font-size: 18px;
-  }
+  .flow-arrow { text-align: center; color: var(--text-muted); font-size: 18px; }
 </style>
 </head>
 <body>
@@ -105,7 +97,6 @@
     <div class="card">
       <h2 style="font-size:17px; font-weight:700; margin-bottom:16px;">🚀 サーバーへの初期導入手順</h2>
       <p style="margin-bottom:20px; color:var(--text-muted); font-size:14px;">Botをサーバーに追加したら、まず以下の手順で初期設定を行ってください。</p>
-
       <div class="flow-box">
         <div class="flow-item">
           <div class="flow-num">1</div>
@@ -119,7 +110,7 @@
           <div class="flow-num">2</div>
           <div>
             <div style="font-weight:700;">登録ボタンを設置する（/g99_setbutton）</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">メンバーが登録しやすいチャンネルで <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g99_setbutton</code> を実行します。登録・確認ボタンが投稿されます。</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">メンバーが登録しやすいチャンネルで実行します。登録・確認ボタンが投稿されます。初回のみ実行してください。</div>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
@@ -134,16 +125,8 @@
         <div class="flow-item">
           <div class="flow-num">4</div>
           <div>
-            <div style="font-weight:700;">未登録者を確認する（/g01_chunregistered または /g11_roleunregistered）</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">未登録者がいる場合は登録を促します。</div>
-          </div>
-        </div>
-        <div class="flow-arrow">↓</div>
-        <div class="flow-item">
-          <div class="flow-num">5</div>
-          <div>
-            <div style="font-weight:700;">参加者一覧を生成する（/g02_chdesc または /g12_roledesc）</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">全員が登録済みになったら参加者一覧を生成します。</div>
+            <div style="font-weight:700;">参加者一覧を生成する（/g01_chdesc または /g11_roledesc）</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">未登録者の確認・登録促進・参加者一覧の生成がコマンド一つで完結します。</div>
           </div>
         </div>
       </div>
@@ -156,16 +139,16 @@
         <div class="flow-item">
           <div class="flow-num">1</div>
           <div>
-            <div style="font-weight:700;">未登録者を確認・登録を促す</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;"><code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g01_chunregistered</code> または <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g11_roleunregistered</code> で確認</div>
+            <div style="font-weight:700;">チャンネル/スレッド指定の場合</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;"><code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g01_chdesc</code> を実行 → 未登録確認 → 概要欄作成</div>
           </div>
         </div>
-        <div class="flow-arrow">↓</div>
+        <div class="flow-arrow">↓ または</div>
         <div class="flow-item">
           <div class="flow-num">2</div>
           <div>
-            <div style="font-weight:700;">参加者一覧を生成する</div>
-            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;"><code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g02_chdesc</code> または <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g12_roledesc</code> で生成</div>
+            <div style="font-weight:700;">ロール指定の場合</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:4px;"><code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g11_roledesc @ロール</code> を実行 → 未登録確認 → 概要欄作成</div>
           </div>
         </div>
       </div>
@@ -175,11 +158,9 @@
       <h2 style="font-size:17px; font-weight:700; margin-bottom:16px;">⚙️ 管理者コマンドまとめ</h2>
       <table class="cmd-table">
         <tr><th>コマンド</th><th>内容</th><th>頻度</th></tr>
-        <tr><td><code>/g01_chunregistered</code></td><td>チャンネル/スレッドの未登録者確認＋登録促進</td><td><span class="badge badge-info">概要欄作成前</span></td></tr>
-        <tr><td><code>/g02_chdesc</code></td><td>チャンネル/スレッドの参加者一覧を生成</td><td><span class="badge badge-success">概要欄作成時</span></td></tr>
-        <tr><td><code>/g11_roleunregistered</code></td><td>指定ロールの未登録者確認</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
-        <tr><td><code>/g12_roledesc</code></td><td>指定ロールの参加者一覧を生成</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
-        <tr><td><code>/g91_unregistered</code></td><td>サーバー全体の未登録者確認</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
+        <tr><td><code>/g01_chdesc</code></td><td>チャンネル/スレッドの未登録確認＋概要欄作成</td><td><span class="badge badge-info">概要欄作成前</span></td></tr>
+        <tr><td><code>/g11_roledesc</code></td><td>指定ロールの未登録確認＋概要欄作成</td><td><span class="badge badge-info">概要欄作成前</span></td></tr>
+        <tr><td><code>/g91_unregistered</code></td><td>サーバー全体の未登録メンバーを確認</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
         <tr><td><code>/g99_setbutton</code></td><td>登録ボタンをチャンネルに設置</td><td><span class="badge badge-warning">初回のみ</span></td></tr>
       </table>
     </div>
@@ -260,7 +241,7 @@
       <table class="cmd-table">
         <tr><th>コマンド</th><th>説明</th></tr>
         <tr><td><code>/a02_myprofile</code></td><td>自分の登録情報を確認する（自分にだけ見える）</td></tr>
-        <tr><td><code>/a03_profile @ユーザー</code></td><td>このサーバー内のメンバーの登録情報を確認する（自分にだけ見える・他のサーバーの人には見られません）</td></tr>
+        <tr><td><code>/a03_profile @ユーザー</code></td><td>このサーバー内のメンバーの登録情報を確認する（自分にだけ見える）</td></tr>
       </table>
     </div>
 
@@ -286,10 +267,8 @@
       <h2 style="font-size:16px; font-weight:700; margin-bottom:16px;">📋 コマンドまとめ（管理者）</h2>
       <table class="cmd-table">
         <tr><th>コマンド</th><th>内容</th></tr>
-        <tr><td><code>/g01_chunregistered [#ch/#thread]</code></td><td>チャンネル/スレッドの未登録者確認＋登録促進</td></tr>
-        <tr><td><code>/g02_chdesc [#ch/#thread]</code></td><td>チャンネル/スレッドの参加者一覧を生成</td></tr>
-        <tr><td><code>/g11_roleunregistered @ロール</code></td><td>指定ロールの未登録者確認</td></tr>
-        <tr><td><code>/g12_roledesc @ロール</code></td><td>指定ロールの参加者一覧を生成</td></tr>
+        <tr><td><code>/g01_chdesc [#ch/#thread]</code></td><td>チャンネル/スレッドの未登録確認＋概要欄作成</td></tr>
+        <tr><td><code>/g11_roledesc @ロール</code></td><td>指定ロールの未登録確認＋概要欄作成</td></tr>
         <tr><td><code>/g91_unregistered</code></td><td>サーバー全体の未登録メンバーを確認</td></tr>
         <tr><td><code>/g99_setbutton</code></td><td>登録・確認ボタンをチャンネルに設置（初期設定）</td></tr>
       </table>
@@ -298,53 +277,53 @@
     <div class="card">
       <div class="section-header">
         <div class="section-number">1</div>
-        <div class="section-title">未登録者を確認・登録を促す</div>
+        <div class="section-title">チャンネル/スレッド指定で概要欄を作成する（/g01_chdesc）</div>
       </div>
+      <p style="margin-bottom:12px;">未登録者の確認から概要欄の作成までを1コマンドで行えます。</p>
+      <table class="cmd-table" style="margin-bottom:16px;">
+        <tr><th>使い方</th><th>説明</th></tr>
+        <tr><td><code>/g01_chdesc</code></td><td>実行したチャンネル/スレッドのメンバーで処理</td></tr>
+        <tr><td><code>/g01_chdesc #チャンネル</code></td><td>指定したチャンネルのメンバーで処理</td></tr>
+        <tr><td><code>/g01_chdesc #スレッド</code></td><td>指定したスレッドのメンバーで処理</td></tr>
+      </table>
 
-      <div class="h3">① チャンネル/スレッド指定（/g01_chunregistered）</div>
+      <div class="h3">全員登録済みの場合</div>
       <ol class="step-list">
-        <li>/g01_chunregistered を実行（チャンネル/スレッドを引数で指定も可）</li>
+        <li>「✅ 全メンバーが登録済みです！概要欄を作成しますか？」と表示される</li>
+        <li>「📋 概要欄を作成する」ボタンを押すと参加者一覧が投稿される</li>
+      </ol>
+
+      <div class="h3">未登録者がいる場合</div>
+      <ol class="step-list">
         <li>未登録者一覧が自分にだけ表示される</li>
-        <li>「📢 登録を促すメッセージを送る」ボタンを押す</li>
-        <li>未登録者にメンション＋登録ボタンが送信される</li>
+        <li>「📢 登録を促す」または「📋 このまま概要欄を作成する」を選択する</li>
+        <li>「登録を促す」を押すと未登録者にメンション＋登録ボタンが送信される</li>
       </ol>
-      <div class="info-box" style="margin-top:10px;">
-        別チャンネルを指定した場合、「〇〇チャンネルに送信します」と案内が表示されてから指定チャンネルに送信されます。
-      </div>
-
-      <div class="h3" style="margin-top:20px;">② ロール指定（/g11_roleunregistered）</div>
-      <ol class="step-list">
-        <li>/g11_roleunregistered @ロール を実行</li>
-        <li>そのロールの未登録者一覧が自分にだけ表示される</li>
-      </ol>
-      <div class="info-box" style="margin-top:10px;">
-        確認のみのコマンドです。登録を促すボタンはありません。
+      <div class="info-box" style="margin-top:12px;">
+        別チャンネルを指定した場合、メンションは指定したチャンネルに送信されます。20人以上の場合は確認ボタンが表示されます。
       </div>
     </div>
 
     <div class="card">
       <div class="section-header">
         <div class="section-number">2</div>
-        <div class="section-title">参加者一覧を生成する</div>
+        <div class="section-title">ロール指定で概要欄を作成する（/g11_roledesc）</div>
       </div>
+      <p style="margin-bottom:12px;">指定したロールのメンバーで未登録確認から概要欄作成まで行えます。</p>
 
-      <div class="h3">① チャンネル/スレッド指定（/g02_chdesc）</div>
-      <p style="margin-bottom:10px;">チャンネル・スレッドが見えているメンバーで参加者一覧を生成します。</p>
-      <table class="cmd-table" style="margin-bottom:12px;">
-        <tr><th>使い方</th><th>説明</th></tr>
-        <tr><td><code>/g02_chdesc</code></td><td>実行したチャンネル/スレッドのメンバーで生成</td></tr>
-        <tr><td><code>/g02_chdesc #チャンネル</code></td><td>指定したチャンネルのメンバーで生成</td></tr>
-        <tr><td><code>/g02_chdesc #スレッド</code></td><td>指定したスレッドのメンバーで生成</td></tr>
-      </table>
-
-      <div class="h3" style="margin-top:20px;">② ロール指定（/g12_roledesc）</div>
+      <div class="h3">全員登録済みの場合</div>
       <ol class="step-list">
-        <li>/g12_roledesc @ロール を実行</li>
-        <li>参加者一覧がチャンネルに投稿される</li>
+        <li>「✅ 全メンバーが登録済みです！概要欄を作成しますか？」と表示される</li>
+        <li>「📋 概要欄を作成する」ボタンを押すと参加者一覧が投稿される</li>
       </ol>
 
-      <div class="info-box" style="margin-top:16px;">
-        コマンド実行者が先頭に表示されます。サブ垢・削除済みのメンバーは除外されます。20人以上の場合は確認ボタンが表示されます。
+      <div class="h3">未登録者がいる場合</div>
+      <ol class="step-list">
+        <li>未登録者一覧が自分にだけ表示される</li>
+        <li>「📋 このまま概要欄を作成する」または「❌ キャンセル」を選択する</li>
+      </ol>
+      <div class="info-box" style="margin-top:12px;">
+        未登録者は名前のみ表示されます。20人以上の場合は確認ボタンが表示されます。
       </div>
     </div>
 
@@ -355,7 +334,7 @@
       </div>
       <p>サーバー全体でSNS情報を登録していないメンバーの一覧を確認できます（自分にだけ見える）。</p>
       <div class="warn-box" style="margin-top:12px;">
-        大人数のサーバーでは処理に時間がかかる場合があります。通常は /g01_chunregistered または /g11_roleunregistered の使用を推奨します。
+        大人数のサーバーでは処理に時間がかかる場合があります。通常は /g01_chdesc または /g11_roledesc の使用を推奨します。
       </div>
     </div>
 
