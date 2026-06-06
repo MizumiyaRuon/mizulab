@@ -111,6 +111,7 @@
           <div>
             <div style="font-weight:700;">登録ボタンを設置する（/g99_setbutton）</div>
             <div style="font-size:13px; color:var(--text-muted); margin-top:4px;">メンバーが登録しやすいチャンネルで実行します。登録・確認ボタンが投稿されます。初回のみ実行してください。</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-top:6px;">任意で <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">notify_channel</code> を指定すると、メンバーが登録した際にそのチャンネル/スレッドへ通知が届きます。後から変更する場合は <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">/g98_setnotify</code> を使用してください。</div>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
@@ -195,6 +196,7 @@ https://MizumiyaRuon.github.io/mizulab/</div>
         <tr><td><code>/g01_chdesc</code></td><td>チャンネル/スレッドの未登録確認＋概要欄作成</td><td><span class="badge badge-info">概要欄作成前</span></td></tr>
         <tr><td><code>/g11_roledesc</code></td><td>指定ロールの未登録確認＋概要欄作成</td><td><span class="badge badge-info">概要欄作成前</span></td></tr>
         <tr><td><code>/g91_unregistered</code></td><td>サーバー全体の未登録メンバーを確認</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
+        <tr><td><code>/g98_setnotify</code></td><td>登録通知チャンネル/スレッドを設定・解除</td><td><span class="badge" style="background:#e2e8f0;color:#475569;">必要時</span></td></tr>
         <tr><td><code>/g99_setbutton</code></td><td>登録ボタンをチャンネルに設置</td><td><span class="badge badge-warning">初回のみ</span></td></tr>
       </table>
     </div>
@@ -385,6 +387,23 @@ https://MizumiyaRuon.github.io/mizulab/</div>
       </ol>
       <div class="info-box" style="margin-top:12px;">
         ボタンはBot再起動後も有効なまま維持されます。
+      </div>
+      <p style="margin-top:12px;">実行時に <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">notify_channel</code> オプションで通知先チャンネル/スレッドを指定すると、メンバーが登録した際に通知が届きます（任意）。</p>
+    </div>
+
+    <div class="card">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">登録通知チャンネルを設定・解除する（/g98_setnotify）</div>
+      </div>
+      <p>メンバーが登録した際に、指定したチャンネルまたはスレッドへ「○○さんが登録しました。」と通知します。</p>
+      <ol class="step-list">
+        <li>/g99_setbutton 実行時に notify_channel を指定した場合は設定不要です</li>
+        <li>後から設定・変更する場合は /g98_setnotify #チャンネル（またはスレッド）を実行</li>
+        <li>通知を解除する場合は /g98_setnotify をオプションなしで実行</li>
+      </ol>
+      <div class="info-box" style="margin-top:12px;">
+        チャンネル・スレッドどちらでも指定できます。
       </div>
     </div>
 
